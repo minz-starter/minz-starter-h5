@@ -14,4 +14,9 @@ onMounted(()=>{
 <template>
   <h1>Hello World</h1>
 </template>
-<style lang="less" scoped src="./Index.less"></style>
+
+<style lang="less" scoped>
+h1{
+  font-size: 14dvw;
+}
+</style>
