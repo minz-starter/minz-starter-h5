@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hello</title>
+    <script src="./jquery-3.3.1.min.js"></script>
+    <script src="//res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, visitor-scalable=no">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  <script>
+      window.alert = function(name){
+          var iframe = document.createElement("IFRAME");
+          iframe.style.display="none";
+          iframe.setAttribute("src", 'data:text/plain,');
+          document.documentElement.appendChild(iframe);
+          window.frames[0].window.alert(name);
+          iframe.parentNode.removeChild(iframe);
+      }
+      window.confirm = function (message) {
+          var iframe = document.createElement("IFRAME");
+          iframe.style.display = "none";
+          iframe.setAttribute("src", 'data:text/plain,');
+          document.documentElement.appendChild(iframe);
+          var alertFrame = window.frames[0];
+          var result = alertFrame.window.confirm(message);
+          iframe.parentNode.removeChild(iframe);
+          return result;
+      }
+
+      // $.ajax({
+      //     url: "//hi-web.lanzanyun.net/wxapi/signature",
+      //     dataType: "jsonp",
+      //     data: {"url": window.location.href},
+      //     success: function(json){
+      //         wx.config({
+      //             debug: false,
+      //             appId: json.appId,
+      //             timestamp: json.timestamp,
+      //             nonceStr: json.nonceStr,
+      //             signature: json.signature,
+      //             jsApiList: ["updateAppMessageShareData", "updateTimelineShareData"]
+      //         });
+      //     }
+      // });
+      // wx.ready(function(){
+      //     // app msg
+      //     wx.updateAppMessageShareData({
+      //         title: "title",
+      //         desc: "desc",
+      //         link: 'https://hi.lanzanyun.net/appname/',
+      //         imgUrl: 'https://hi.lanzanyun.net/appname/share.png',
+      //         success: function () {}
+      //     })
+      //     // share tl
+      //     wx.updateTimelineShareData({
+      //         title: "title",
+      //         link: 'https://hi.lanzanyun.net/appname/',
+      //         imgUrl: 'https://hi.lanzanyun.net/appname/share.png',
+      //         success: function () {}
+      //     })
+      // });
+
+  </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "name": "vect_h5_starter",
+  "private": true,
+  "version": "0.2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:test": "vite --mode test",
+    "dev:prod": "vite --mode prod",
+    "build:test": "vite build --mode test",
+    "build:prod": "vite build --mode prod",
+    "preview": "vite preview",
+    "deploy": "node scripts/deploy.js"
+  },
+  "dependencies": {
+    "@minz-starter/postcss-dvw-to-vw": "^1.0.0",
+    "axios": "^1.7.9",
+    "pinia": "^2.3.0",
+    "postcss": "^8.4.27",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "less": "^4.2.1",
+    "vite": "^6.0.5",
+    "ssh2-sftp-client": "^12.0.1"
+  }
+}
