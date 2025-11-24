@@ -5,9 +5,9 @@ import * as api from "@/api/index.js";
 /**
  * 获取认证user
  */
-export const useAuth = defineStore("auth-space", () => {
+export const useAuth = defineStore("auth-store", () => {
 
-    const storageKey = "user-auth";
+    const storageKey = "token";
 
     const clearToken = () => {
         localStorage.removeItem(storageKey);
@@ -22,14 +22,12 @@ export const useAuth = defineStore("auth-space", () => {
     };
 
   // 获取用户信息
-  const getUser = async (k) => {
+  const getAuthUser = async (k) => {
     // 获取token
     let token = getToken(k);
-    const res = await api.user.get({
-        headers: { token  }
-    })
+    const res = await api.user.getInfo()
     return res.data ?? null;
   };
 
-  return { getToken, setToken, clearToken, getUser };
+  return { getToken, setToken, clearToken, getAuthUser };
 });
